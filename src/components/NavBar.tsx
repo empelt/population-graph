@@ -10,7 +10,7 @@ export default function NabVar() {
 }
 
 const NabvarContainer = styled.div`
-  height: 50px;
+  height: 60px;
   background-color: #1a202c;
   display: flex;
   justify-content: center;
@@ -18,6 +18,6 @@ const NabvarContainer = styled.div`
 `;
 
 const NabvarTitle = styled.p`
-  font-size: 24px;
+  font-size: 30px;
   color: white;
 `;

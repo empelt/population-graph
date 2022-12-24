@@ -32,7 +32,7 @@ const Label = styled.label`
 
 const Span = styled.span<{ checked: boolean }>`
   color: ${({ checked }) => (checked ? 'white' : '#1a202c')};
-  font-size: 14px;
+  font-size: 20px;
   background-color: ${({ checked }) => (checked ? '#1a202c' : 'white')};
   box-shadow: 0px 0px 15px -7px #777777;
   border-radius: 20px;

@@ -43,4 +43,5 @@ const AaccordionButton = styled.button`
   align-items: center;
   border-radius: 10px;
   border: solid 1px #1a202c;
+  font-size: 20px;
 `;

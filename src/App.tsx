@@ -110,15 +110,16 @@ export default function App() {
 }
 
 const PageContainer = styled.div`
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
 `;
 
 const Section = styled.section`
-  padding: 10px 5px 10px 5px;
+  padding: 20px 5px 20px 5px;
 `;
 
 const SectionTitle = styled.p`
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
 `;
