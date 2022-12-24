@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 type Props = {
-  checked?: boolean
-  onChange: (prefCode: number, isChecked: boolean) => void
-  prefCode: number
-  prefName: string
-}
+  checked?: boolean;
+  onChange: (prefCode: number) => void;
+  prefCode: number;
+  prefName: string;
+};
 
 export default function CheckBox({
   checked = false,
@@ -19,16 +19,16 @@ export default function CheckBox({
       <Input
         type="checkbox"
         checked={checked}
-        onChange={(event) => onChange(prefCode, event.target.checked)}
+        onChange={() => onChange(prefCode)}
       />
       <Span checked={checked}>{prefName}</Span>
     </Label>
-  )
+  );
 }
 
 const Label = styled.label`
   display: contents;
-`
+`;
 
 const Span = styled.span<{ checked: boolean }>`
   color: ${({ checked }) => (checked ? 'white' : '#1a202c')};
@@ -42,8 +42,8 @@ const Span = styled.span<{ checked: boolean }>`
   &:hover {
     box-shadow: 0px 0px 15px -3px #777777;
   }
-`
+`;
 
 const Input = styled.input`
   display: none;
-`
+`;
