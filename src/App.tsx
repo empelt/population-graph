@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import CheckField from 'components/CheckField';
 import Graph from 'components/Graph';
 import Accordion from 'components/Accordion';
+import NabVar from 'components/NavBar';
 
 const getPrefectures = async () => {
   const response = await fetch(
@@ -76,30 +77,35 @@ export default function App() {
     }
   };
   return (
-    <PageContainer>
-      <Section>
-        <SectionTitle>グラフに表示する都道府県を選択してください</SectionTitle>
-        {prefectures && width <= 520 && (
-          <Accordion>
+    <>
+      <NabVar />
+      <PageContainer>
+        <Section>
+          <SectionTitle>
+            グラフに表示する都道府県を選択してください
+          </SectionTitle>
+          {prefectures && width <= 520 && (
+            <Accordion>
+              <CheckField
+                prefectures={prefectures}
+                checkedCodes={checkedCodes}
+                onChange={handleChangeCheckBox}
+              />
+            </Accordion>
+          )}
+          {prefectures && width > 520 && (
             <CheckField
               prefectures={prefectures}
               checkedCodes={checkedCodes}
               onChange={handleChangeCheckBox}
             />
-          </Accordion>
-        )}
-        {prefectures && width > 520 && (
-          <CheckField
-            prefectures={prefectures}
-            checkedCodes={checkedCodes}
-            onChange={handleChangeCheckBox}
-          />
-        )}
-      </Section>
-      <Section>
-        <Graph prefectures={prefectures} checkedCodes={checkedCodes} />
-      </Section>
-    </PageContainer>
+          )}
+        </Section>
+        <Section>
+          <Graph prefectures={prefectures} checkedCodes={checkedCodes} />
+        </Section>
+      </PageContainer>
+    </>
   );
 }
 
