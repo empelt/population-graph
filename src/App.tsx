@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import useWindowSize from 'hooks/useWindowSize';
 import styled from 'styled-components';
 import CheckField from 'components/CheckField';
 import Graph from 'components/Graph';
+import Accordion from 'components/Accordion';
 
 const getPrefectures = async () => {
   const response = await fetch(
@@ -31,6 +33,7 @@ const getPopulation = async (prefCode: number) => {
 };
 
 export default function App() {
+  const [width] = useWindowSize();
   const [prefectures, setPrefectures] = useState<
     {
       prefCode: number;
@@ -76,7 +79,16 @@ export default function App() {
     <PageContainer>
       <Section>
         <SectionTitle>グラフに表示する都道府県を選択してください</SectionTitle>
-        {prefectures && (
+        {prefectures && width <= 520 && (
+          <Accordion>
+            <CheckField
+              prefectures={prefectures}
+              checkedCodes={checkedCodes}
+              onChange={handleChangeCheckBox}
+            />
+          </Accordion>
+        )}
+        {prefectures && width > 520 && (
           <CheckField
             prefectures={prefectures}
             checkedCodes={checkedCodes}
